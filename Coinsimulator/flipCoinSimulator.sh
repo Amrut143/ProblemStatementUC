@@ -22,13 +22,20 @@ done
 	echo "Tails=$tailsCount"
 if [ $headsCount -gt $tailsCount ]
 then
-	winHead=$(($headsCount-$tailsCount))
-	echo "Heads Won and Win difference is $winHead"
+	minDiff=$(($headsCount-$tailsCount))
+	echo "Heads Won and Win difference is $minDiff"
 elif [ $headsCount -lt $tailsCount ]
 then
-	winTail=$(($tailsCount-$headsCount))
-	echo "Tails Won and Win difference is $winTail"
-else
-	echo "Tie"
+	minDiff=$(($tailsCount-$headsCount))
+	echo "Tails Won and Win difference is $minDiff"
+elif [ $headsCount -eq $tailsCount ]
+then
+	echo"Tie"
+	while (($minDiff>=3))
+	do
+		continue;
+	done
+	
+
 fi
 
