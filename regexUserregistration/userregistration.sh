@@ -10,3 +10,13 @@ then
 else
 	echo invalid
 fi
+echo "Enter last name::"
+read LastName
+pat="^[[:upper:]][[:lower:]]{2,9}$"
+
+if [[ $LastName =~ $pat ]]
+then
+	echo valid
+else
+	echo invalid
+fi
