@@ -1,10 +1,10 @@
-#!/bin/bash 
+#!/bin/bash -x
 
-read -p "Enter the number of flip::" n
+
 headsCount=0
 tailsCount=0
 count=0
-for (( i=1; i<=n; i++ ))
+while (( $headsCount<21 && $tailsCount<21 ))
 do
 	flip=$(($((RANDOM%10))%2))
 
@@ -18,5 +18,17 @@ do
 		count=$(($count+1))
 	fi
 done
-		echo "Heads=$headsCount"
-		echo "Tails=$tailsCount"
+	echo "Heads=$headsCount"
+	echo "Tails=$tailsCount"
+if [ $headsCount -gt $tailsCount ]
+then
+	winHead=$(($headsCount-$tailsCount))
+	echo "Heads Won and Win difference is $winHead"
+elif [ $headsCount -lt $tailsCount ]
+then
+	winTail=$(($tailsCount-$headsCount))
+	echo "Tails Won and Win difference is $winTail"
+else
+	echo "Tie"
+fi
+
