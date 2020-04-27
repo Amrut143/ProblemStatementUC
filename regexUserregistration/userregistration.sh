@@ -34,3 +34,16 @@ then
 else
 	echo invalid email address
 fi
+echo "Enter mobile number::"
+read mobnumber
+pat="^[+]?91[\s-]?$"
+pat="[6-9]{1}$"
+pat="([1-9]{9})+$"
+pat="^([+]?91[\s-]?)([6-9]{1})([0-9]{9})+$"
+
+if [[ $mobnumber =~ $pat ]]
+then
+	echo valid mobile number
+else
+	echo invalid mobile number
+fi
