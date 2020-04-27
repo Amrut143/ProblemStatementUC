@@ -6,12 +6,16 @@ public class EmpWageBuilder {
 			double IS_PART_TIME = 2;
 			int emp_rate_per_hr=20;
 			int emp_hr;
+			int MAX_HR_IN_MONTH=100;
 			double totalSalary=0;
 			int num_Working_days=20;
-			double salary=0;
+
+			int totalEmphr=0;
+			int totalWorkingdays=0;
 					//computation
-		for (int day=1; day<=num_Working_days; day++)
+		while (totalEmphr<MAX_HR_IN_MONTH && totalWorkingdays<num_Working_days)
 			{
+				totalWorkingdays=totalWorkingdays+1;
 			double random = Math.floor((double)Math.random() * 10) % 3;
 			int empCheck=(int)Math.round(random);
 			switch (empCheck){
@@ -27,10 +31,10 @@ public class EmpWageBuilder {
 				default:
 				emp_hr=0;
 				}
-				salary=emp_hr*emp_rate_per_hr;
-				totalSalary=totalSalary+salary;
+				totalEmphr=totalEmphr+emp_hr;
 			}
-				System.out.println("Employee wage is::"+salary);
+				totalSalary=totalEmphr*emp_rate_per_hr;
+				System.out.println("Employee working hour is::"+totalEmphr);
             System.out.println("Employee salary for month is::"+totalSalary);
 
 		}
