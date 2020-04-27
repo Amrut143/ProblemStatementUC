@@ -2,30 +2,38 @@
 
 isFullTime=1;
 isPartTime=2;
-MAX_HR_IN_MONTH=4;
+MAX_HR_IN_MONTH=10;
 empRatePerHr=20;
 numWorkingDays=20;
 
 totalEmpHr=0;
 totalWorkingDays=0;
 
-function getWorkingHours() {
+function getWorkHrs() {
+		local $empCheck=$1
 		case $1 in
 					$isFullTime)
-							workHours=8 ;;
+							empHr=8 ;;
 					$isPartTime)
-							workHours=4 ;;
+							empHr=4 ;;
 					*)
-							workHours=0 ;;
+							empHr=0 ;;
 		esac
-		echo $workHours
+		echo $empHr
+}
+function getEmpWage() {
+		local empHr=$1
+		echo $(($empHr*$empRatePerHr))
 }
 
 
 while (( $totalEmpHr<$MAX_HR_IN_MONTH && $totalWorkingDays<$numWorkingDays ))
 do
    ((totalWorkingDays++))
-	workHours="$( getWorkingHours $((RANDOM%3)) )"
-	totalWorkHours=$(($totalWorkHours+$workHours))
+	empCheck=$((RANDOM%3))
+	empHr="$( getWorkHrs $empCheck )"
+	totalempHrs=$(($totalempHrs+$empHr))
+	dailyWage[$totalWorkingDays]="$( getEmpWage $empHr )"
 done
-totalSalary=$(($totalWorkHours*$empRatePerHr));
+totalSalary=$(($totalempHrs*$empRatePerHr));
+echo ${dailyWage[@]}
