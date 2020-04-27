@@ -47,3 +47,17 @@ then
 else
 	echo invalid mobile number
 fi
+echo "Enter your password::"
+read password
+pat1="[A-Z]+"
+pat2="[a-z]+"
+pat3="[0-9]+"
+pat4="[!|@|#|$|%|^|&|*]{1}$"
+
+if [[ $password =~ $pat1 ]] && [[ $password =~ $pat2 ]] && [[ $password =~ $pat3 ]] && [[ $password =~ $pat4 ]] && [[ ${#password} -ge 8 ]];
+then
+	echo valid password
+else
+	echo invalid password
+fi
+
