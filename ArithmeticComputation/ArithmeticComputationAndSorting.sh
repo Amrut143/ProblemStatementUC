@@ -5,7 +5,7 @@ read -p "Enter second number:: " b
 read -p "Enter third number:: " c
 
 declare -A dictionary
-
+array=();
 result1=$(( $a + $b * $c ))
 result2=$(( $a * $b + $c ))
 result3=$(( $c + $a / $b ))
@@ -16,5 +16,6 @@ dictionary[value2]=$result2
 dictionary[value3]=$result3
 dictionary[value4]=$result4
 
-echo ${dictionary[@]}
+array+=${dictionary[@]}
 
+echo ${array[@]}
