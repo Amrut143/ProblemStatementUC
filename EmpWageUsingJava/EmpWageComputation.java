@@ -26,10 +26,12 @@ class EmpUtil {
 		public double getDailyWage() {
 				if (empCheck == 1)
 				{
+					System.out.println("Employee is present");
 					salary=empHr*empRatePerHr;
 				}
 				else
 				{
+					System.out.println("Employee is abscent");
 					salary=0;
 				}
 				return salary;
