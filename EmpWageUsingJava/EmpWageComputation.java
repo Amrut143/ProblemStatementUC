@@ -10,6 +10,7 @@ public class EmpWageComputation {
 		System.out.println("Welcome to employee wage computation");
          //create EmpUtil object
       final EmpUtil emp=new EmpUtil();
+		//call daily wage method
 		System.out.println("Employee daily wage is"+emp.getDailyWage());
    }
 }
@@ -36,6 +37,7 @@ class EmpUtil {
 				else
 				{
 					System.out.println("Employee is abscent");
+					salary=0;
 				}
 				salary=empHr*empRatePerHr;
 				return salary;
