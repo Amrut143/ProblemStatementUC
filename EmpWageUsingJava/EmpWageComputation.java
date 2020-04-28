@@ -10,12 +10,7 @@ public class EmpWageComputation {
 
          //create EmpUtil object
       final EmpUtil emp=new EmpUtil();
-      System.out.println("Welcom to employee wage computation");
-
-		//call isPresent method
-      emp.isPresent();
 		//call daily wage method
-		//emp.getDailyWage();
 		System.out.println("Employee daily wage is"+emp.getDailyWage());
    }
 }
@@ -26,19 +21,6 @@ class EmpUtil {
 		double salary;
       //assign variable to check emp present or abscent
       double empCheck = Math.floor((double)Math.random() * 10)% 2;
-      //isPresent or abscent
-      public boolean isPresent() {
-      if (empCheck == 1)
-      {
-            System.out.println("Employee is present");
-      }
-      else
-      {
-
-            System.out.println("Employee is abscent");
-      }
-            return empCheck==1;
-   }
 
 		//method for emp daily wage computation
 		public double getDailyWage() {
