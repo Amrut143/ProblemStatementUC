@@ -19,25 +19,28 @@ class EmpUtil {
 		int empRatePerHr=20;
 		int empHr;
 		double salary;
-      double empCheck = Math.floor((double)Math.random() * 10) % 3;
+    double attendance = Math.floor((double)Math.random() * 10) % 3;
 
-		//method to check employee is part time or full time and get daily wage
+		//method to return employee daily wage using switch case
 		public double getDailyWage() {
+			//convert empCheck from double to int
+				int empCheck=(int)Math.round(attendance);
+				switch (empCheck)
+				{
+					case 0:
+						System.out.println("Employee is full time");
+						empHr=8;
+					break;
 
-				if (empCheck == 0)
-				{
-					System.out.println("Employee is full time");
-					empHr=8;
-				}
-				else if (empCheck == 1)
-				{
-					System.out.println("Employee is part time");
-					empHr=4;
-				}
-				else
-				{
-					System.out.println("Employee is abscent");
-					salary=0;
+					case 1:
+						System.out.println("Employee is part time");
+						empHr=4;
+					break;
+
+					case 2:
+						System.out.println("Employee is abscent");
+						empHr=0;
+					break;
 				}
 				salary=empHr*empRatePerHr;
 				return salary;
