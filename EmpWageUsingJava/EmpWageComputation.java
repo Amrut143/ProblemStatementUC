@@ -10,6 +10,7 @@ public class EmpWageComputation {
 		System.out.println("Welcome to employee wage computation");
          //create EmpUtil object
       final EmpUtil emp=new EmpUtil();
+		//call daily wage method
 		System.out.println("Employee daily wage is"+emp.getDailyWage());
    }
 }
@@ -18,7 +19,7 @@ class EmpUtil {
 		int empRatePerHr=20;
 		int empHr;
 		double salary;
-      double attendance = Math.floor((double)Math.random() * 10) % 3;
+    double attendance = Math.floor((double)Math.random() * 10) % 3;
 
 		//method to return employee daily wage using switch case
 		public double getDailyWage() {
