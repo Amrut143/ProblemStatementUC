@@ -28,7 +28,7 @@ class EmpUtil
 	//method to check employee attendance
 	public void checkAttendance(int attendance)
 	{
-		this.attendance = attendance;
+		this.attendance=attendance;
 		if(this.attendance==0)
 		{
 			System.out.println("Employee is present");
