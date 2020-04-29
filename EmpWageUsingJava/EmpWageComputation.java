@@ -1,36 +1,41 @@
 /**
-* Employee wage computation program
-* @author: Amrut
-*/
+*Employee wage computation program
+*@author:Amrut
+
 import java.util.Random;
+public class EmpWageComputation 
+{
+	//main method
+	public static void main(String[] args) 
+	{
+		int attend;
+		System.out.println("Welcome to employee wage computation");
 
-public class EmpWageComputation {
-		//main method
-		public static void main(String[] args) {
+		//instantiating EmpUtil class
+		EmpUtil eu=new EmpUtil();
+		Random ran=new Random();
+		attend=ran.nextInt(2);
 
-			//create EmpUtil object
-		final EmpUtil emp=new EmpUtil();
-		System.out.println("Welcom to employee wage computation");
-
-		emp.isPresent();
+		//calling checkAttendance method
+		eu.checkAttendance(attend);
 	}
 }
-class EmpUtil {
-		//assign variable to check emp present or abscent
-		double empCheck = Math.floor((double)Math.random() * 10)% 2;
-		//isPresent or abscent
-		public boolean isPresent() {
-		if (empCheck == 1)
+
+//Employee utility class
+class EmpUtil
+{
+	int attendance;
+	//method to check employee attendance
+	public void checkAttendance(int attendance)
+	{
+		this.attendance = attendance;
+		if(this.attendance==0)
 		{
-				System.out.println("Employee is present");
+			System.out.println("Employee is present");
 		}
 		else
 		{
-
-				System.out.println("Employee is abscent");
+			System.out.println("Employee is absent");
 		}
-				return empCheck==1;
+	   }
 	}
-}
-
-
