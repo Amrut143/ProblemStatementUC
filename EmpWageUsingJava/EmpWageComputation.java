@@ -3,7 +3,7 @@
 *@author:Amrut
 */
 import java.util.Random;
-public class EmpWageComputation1 
+public class EmpWageComputation 
 {
 	//main method
 	public static void main(String[] args) 
