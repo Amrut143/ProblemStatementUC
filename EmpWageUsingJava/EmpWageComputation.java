@@ -50,6 +50,5 @@ class EmpUtil
 		empHr=8;
 		salary=wagePerHr*empHr;
 		System.out.println("Employee daily wage is::"+salary);
-		
 	}
 }
