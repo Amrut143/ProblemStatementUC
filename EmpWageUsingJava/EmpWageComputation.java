@@ -1,7 +1,7 @@
 /**
 *Employee wage computation program
 *@author:Amrut
-
+*/
 import java.util.Random;
 public class EmpWageComputation 
 {
