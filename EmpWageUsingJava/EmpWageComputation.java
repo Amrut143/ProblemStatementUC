@@ -1,76 +1,45 @@
-/**
-*Employee Wage Computation Program
-*calculated wages for a month
-*@author:Amrut
-*/
-import java.util.Random;
-
 class EmpWageComputation{
+      /*
+      *Main method
+      *@param s
+      */
       public static void main(String []s){
-	int empType;
-	int dailyWage;
-	int monthlyWage=0;
-	int workingHrs;
-        System.out.println("Welcome to Employee Wage Computation Program");
-	EmpUtil eu = new EmpUtil();
-	Random ran = new Random();
-	empType = ran.nextInt(2);
-	//Storing the empHr returned in the variable workingHrs
-	workingHrs = eu.getEmpType(empType);
-	//Storing the daily wage in the variable DailyWage
-	dailyWage = eu.getDailyWage(workingHrs);
-	//getting monthly wage  
-        for (int i=1;i<=20;i++){
-            monthlyWage += eu.getMonthlyWage(workingHrs,i);
-	}
-        System.out.println("Employee monthy wage is: "+monthlyWage);
-      }
-}
-///Employee utility class
-class EmpUtil{
-int salary;
-int attendance;
-final int wagePerHr=20;
-int empHr;
-
-      //method to get employee is part time or full time
-      public int getEmpType(int type){
-       if(type==0){
-          System.out.println("FULL TIME EMPLOYEE");
-          empHr = 8;
-          return empHr;
-       }
-       else{
-          System.out.println("PART TIME EMPLOYEE");
-          empHr = 4;
-          return empHr;
-       }
-	  }
-
-      //method to get employee monthly wage
-      public int getMonthlyWage(int Hour , int day)
-		  {
-			int status;
-			Random ran = new Random();
-			status = ran.nextInt(2);
-				if(status==0)
-					{
-						System.out.println("Day "+day+":Employee Present");					
-      					salary=wagePerHr*Hour;
-      					return salary;
-					}
-				else
-					{
-						System.out.println("Day "+day+": Employee Absent");
-						salary=0;																
-						return salary;
-					}
-			}
-      //method to return employee daily wages
-      public int getDailyWage(int Hour)
-		  {
-			int wage;
-			wage=wagePerHr*Hour;
-			return wage;
+         int empType;
+	 int dailyWage;
+	 int workHrs;
+	 // Totaldays variable counts days till 20 starting from day 1
+	 int totalDays=1;
+	 int loop_end=0;
+	 int [] salaryAndHours = new int[2];
+         System.out.println("Welcome to Employee Wage Computation Program");
+	 Employee person = new Employee();
+	 Random rand = new Random();
+	 empType = rand.nextInt(2);
+	 // fetching working hours per day based on type of employee
+	 workHrs = person.getEmpType(empType);
+	 //calculating daily wage of employee
+	 dailyWage = person.getDailyWage(workHrs);
+	 System.out.println("The daily wage is: "+dailyWage);
+	 //calculating monthly wage of employee according to type of employee
+         while (loop_end==0){
+	    /*
+	    *Storing salary and total working hours returned from getMonthlyWage method in salaryAndHours array
+	    */
+            salaryAndHours = person.getMonthlyWage(workHrs,totalDays,empType);
+	    // Loop till 20 days are over or 100 working hours completed
+            if(totalDays==20 || salaryAndHours[1]==100){
+		if(totalDays==20){
+		   System.out.println("20 days over!");
+		   break;
 		}
+		else{
+		   System.out.println("100 working hours completed!");
+		   break;
+		}
+	    }
+	 totalDays+=1;
+         }
+	 System.out.println("Total hours worked: "+salaryAndHours[1]);
+         System.out.println("The monthly wage is: "+ salaryAndHours[0]);
+      }
 }
